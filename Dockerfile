@@ -1,4 +1,3 @@
-
 FROM node:10.16-alpine AS builder
 
 COPY package*.json ./

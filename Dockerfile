@@ -6,9 +6,8 @@ RUN npm install --silent
 COPY . .
 RUN npm run build
 
-FROM nginx:stable-alpine
+FROM php:8.0-apache
 
-COPY --from=builder build /usr/share/nginx/html
+COPY --from=builder build /var/www/html
 
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
